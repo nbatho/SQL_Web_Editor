@@ -2,6 +2,7 @@ import { useState, useRef } from "react";
 import EditorLayout from "../layout/EditorLayout";
 import MonacoEditor from "@monaco-editor/react";
 import axios from "axios";
+import LeftPanel from "./LeftPanel";
 export default function Dashboard() {
     const SQL_KEYWORDS = [
       'SELECT', 'FROM', 'WHERE', 'INSERT', 'UPDATE', 'DELETE', 'CREATE', 'DROP', 
@@ -113,7 +114,8 @@ export default function Dashboard() {
     };
   return (
     <EditorLayout
-      left={<div></div>}
+
+      left={<LeftPanel />}
     query={
         <div className="w-full h-full flex flex-col overflow-hidden">
             <div className="flex-none border-b border-gray-700 p-3">
@@ -121,7 +123,7 @@ export default function Dashboard() {
                     onClick={runQuery}
                     className="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md"
                 >
-                    Run
+                    Execute
                 </button>
             </div>
             <div className="flex-1 min-h-0">
